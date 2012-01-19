@@ -1,7 +1,7 @@
 {
   "name": "mongodb-wrapper",
   "description": "Exactly-like-the-console wrapper for node-mongodb-native",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "author": "i.TV <sean@i.tv>",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "mongodb"
   ],
   "engines": {
-    "node": "0.4.x"
+    "node": ">= 0.4.0"
   },
   "dependencies": {
     "mongodb": "0.9.6-23",
