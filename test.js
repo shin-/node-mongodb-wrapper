@@ -1,5 +1,5 @@
 
-var sys = require('sys')
+var util = require('util')
 var assert = require('assert')
 
 // normally you make one per test, but here
@@ -263,7 +263,7 @@ exports.renameCollection = function(assert) {
                                     var cursor = db.mongo.toreplace.find({ value: "value" }).one(function(err, doc) {
                                         assert.ifError(err)
                                         assert.notEqual(doc._id, "boot", "Didn't replace collection " + doc)
-                                        assert.equal(doc._id, "woot", "Wrong id for doc " + (sys.inspect(doc)))
+                                        assert.equal(doc._id, "woot", "Wrong id for doc " + (util.inspect(doc)))
 
                                         cursor.explain(function(err, explanation) {
                                             assert.ifError(err)
@@ -345,8 +345,8 @@ exports.finding = function(assert) {
 
         collection.find({}, { color: 1 }).limit(2).skip(1).sort({ _id: 1 }).toArray(function(err, docs) {
             if (err) throw err 
-            assert.equal(docs[0]._id, "B", "found the wrong document. Should have been B " + (sys.inspect(docs)))
-            assert.equal(docs[0].size, null, "did not limit the fields returned " + (sys.inspect(docs)))
+            assert.equal(docs[0]._id, "B", "found the wrong document. Should have been B " + (util.inspect(docs)))
+            assert.equal(docs[0].size, null, "did not limit the fields returned " + (util.inspect(docs)))
             assert.equal(docs[1]._id, "C")
         })
 
@@ -707,7 +707,7 @@ exports.reconnect = function(assert) {
     db.collection('mongo.reconnect') 
     
     var collection = db.mongo.reconnect
-    mongo.log = sys.log
+    mongo.log = util.log
     
     db.connection(function(err, connection) {
         assert.ifError(err)
