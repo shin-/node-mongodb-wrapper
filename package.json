@@ -16,7 +16,7 @@
     "mongodb"
   ],
   "engines": {
-    "node": ">= 0.4.0"
+    "node": ">= 0.6.0"
   },
   "dependencies": {
     "mongodb": "0.9.6-23",
